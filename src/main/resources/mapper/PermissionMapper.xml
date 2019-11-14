@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mdc.nacos.mapper.PermissionMapper">
+
+	<resultMap id="permissionMap" type="com.mdc.nacos.entity.Permission">
+        <id property="id" column="id"/>
+	    <result property="parentId" column="parent_id"/>
+        <result property="name" column="name"/>
+        <result property="enname" column="enname"/>
+        <result property="url" column="url"/>
+        <result property="description" column="description"/>
+        <result property="created" column="created"/>
+        <result property="updated" column="updated"/>
+    </resultMap>
+
+	<sql id="Base_Column_List">
+		id,parent_id,name,enname,url,description,created,updated	</sql>
+    <select id="selectmyList" resultType="com.mdc.nacos.entity.Permission">
+        select <include refid="Base_Column_List"/> from tb_permission
+    </select>
+
+</mapper>
